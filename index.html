@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Grow-Along Garden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background-color: #f6fff7;
+      }
+      .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+      .hero {
+        background: linear-gradient(135deg, #e8f9e9, #fdfcfb);
+      }
+      .section-title {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        color: #6c757d;
+      }
+      .calendar-day {
+        height: 4rem;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+      .calendar-day.has-event {
+        background-color: #e3f5e7;
+        border-radius: 0.35rem;
+        position: relative;
+      }
+      .calendar-day.has-event::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #198754;
+        position: absolute;
+        bottom: 6px;
+        right: 10px;
+      }
+      .tracker-value {
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
+      .photo-thumb {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+      footer {
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand text-success" href="#top">
+          🌱 Grow-Along Garden
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#how-it-works">How it works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#photos">Community Photos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tracker">Your Plant Today</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#calendar">Calendar</a>
+            </li>
+          </ul>
+
+          <a href="#signup" class="btn btn-success ms-lg-3">
+            Join the Grow-Along
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="top" class="hero py-5">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6">
+            <p class="section-title mb-2">Seasonal grow-along groups</p>
+            <h1 class="display-5 fw-bold mb-3">
+              Grow plants together,
+              <span class="text-success">week by week</span>
+            </h1>
+            <p class="lead text-muted mb-4">
+              Buy a plant or seeds, join a seasonal grow-along, and get weekly
+              tips, progress emails, and inspiration from fellow growers.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-success-subtle text-success border border-success-subtle">
+                Weekly progress emails
+              </span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">
+                Photo sharing community
+              </span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">
+                Interactive growth tracker
+              </span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#signup" class="btn btn-success btn-lg">
+                Join the next season
+              </a>
+              <a href="#how-it-works" class="btn btn-outline-success">
+                How it works
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h5 class="card-title mb-3">Weekly Grow-Along Snapshot</h5>
+                <ul class="list-group list-group-flush mb-3">
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Current season</span>
+                    <strong>Spring Herbs 2025</strong>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Growers enrolled</span>
+                    <strong>482</strong>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>This week’s focus</span>
+                    <strong>Repotting & light</strong>
+                  </li>
+                </ul>
+                <p class="small text-muted mb-2">
+                  Subscribe to get Sunday recap emails with tips, reminders, and
+                  featured community photos.
+                </p>
+
+                <form id="hero-signup">
+                  <div class="row g-2">
+                    <div class="col-md-8">
+                      <label for="heroEmail" class="visually-hidden">
+                        Email address
+                      </label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="heroEmail"
+                        placeholder="you@example.com"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4 d-grid">
+                      <button type="submit" class="btn btn-success">
+                        Get weekly emails
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    id="hero-signup-success"
+                    class="form-text text-success mt-2 d-none"
+                  >
+                    Thanks! You’re in for weekly grow-along updates 🌿
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-5">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <p class="section-title mb-2">How it works</p>
+            <h2 class="h3 fw-bold">Join a seasonal grow-along in three steps</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-success-subtle text-success mb-2">1</span>
+                <h5 class="card-title">Choose your plant or seed kit</h5>
+                <p class="card-text text-muted">
+                  Pick from our seasonal collection or use a plant you already
+                  have. Each season focuses on a theme like herbs, leafy
+                  greens, or pollinator flowers.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-success-subtle text-success mb-2">2</span>
+                <h5 class="card-title">Follow the weekly grow plan</h5>
+                <p class="card-text text-muted">
+                  Receive weekly emails with tasks, care tips, and short videos.
+                  Track your own progress with the built-in “Your Plant Today”
+                  tracker.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-success-subtle text-success mb-2">3</span>
+                <h5 class="card-title">Share your journey</h5>
+                <p class="card-text text-muted">
+                  Upload photos, browse other growers’ updates, and celebrate
+                  milestones together on the community gallery and calendar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-5 bg-white border-top border-bottom">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <p class="section-title mb-2">Features</p>
+            <h2 class="h3 fw-bold">Everything you need to grow together</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Weekly progress emails -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="mb-2 fs-3">📬</div>
+                <h5 class="card-title">Weekly progress emails</h5>
+                <p class="card-text text-muted">
+                  Bite-sized guidance, reminders, and checklists sent straight
+                  to your inbox each week of the season.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- User photo submissions -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="mb-2 fs-3">📸</div>
+                <h5 class="card-title">User photo submissions</h5>
+                <p class="card-text text-muted">
+                  Upload your plant photos and see them featured in the
+                  community gallery on the site.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- “Your Plant Today” tracker -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="mb-2 fs-3">🌿</div>
+                <h5 class="card-title">“Your Plant Today” tracker</h5>
+                <p class="card-text text-muted">
+                  Log growth, mood, and care tasks so you can see progress over
+                  time at a glance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive calendar view -->
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="mb-2 fs-3">📅</div>
+                <h5 class="card-title">Interactive calendar</h5>
+                <p class="card-text text-muted">
+                  See key dates, live Q&amp;As, photo prompts, and challenge
+                  days in a visual calendar layout.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY PHOTOS -->
+    <section id="photos" class="py-5">
+      <div class="container">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-8">
+            <p class="section-title mb-2">Community</p>
+            <h2 class="h3 fw-bold">Recent grow-along photos</h2>
+            <p class="text-muted mb-0">
+              All photos are submitted by members of the current and past
+              seasons. Share your progress and be featured here.
+            </p>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <button class="btn btn-outline-success btn-sm">
+              Upload your photo
+            </button>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <!-- Example thumbnails; replace src with real images -->
+          <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/450326/pexels-photo-450326.jpeg?auto=compress&cs=tinysrgb&w=800"
+                class="card-img-top photo-thumb"
+                alt="Basil plant on a windowsill"
+              />
+              <div class="card-body py-2">
+                <p class="small mb-0">
+                  <strong>@greenwindow</strong> — Week 2 basil
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/212348/pexels-photo-212348.jpeg?auto=compress&cs=tinysrgb&w=800"
+                class="card-img-top photo-thumb"
+                alt="Indoor potted herb garden"
+              />
+              <div class="card-body py-2">
+                <p class="small mb-0">
+                  <strong>@balconyblooms</strong> — Mini herb forest
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/4750320/pexels-photo-4750320.jpeg?auto=compress&cs=tinysrgb&w=800"
+                class="card-img-top photo-thumb"
+                alt="Watering small plant"
+              />
+              <div class="card-body py-2">
+                <p class="small mb-0">
+                  <strong>@sproutclub</strong> — First watering day
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/450516/pexels-photo-450516.jpeg?auto=compress&cs=tinysrgb&w=800"
+                class="card-img-top photo-thumb"
+                alt="Herbs in terracotta pots"
+              />
+              <div class="card-body py-2">
+                <p class="small mb-0">
+                  <strong>@backporchherbs</strong> — Repotting day
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="small text-muted mt-3">
+          Want your photo shown here? Join the grow-along and share your plant’s
+          story.
+        </p>
+      </div>
+    </section>
+
+    <!-- YOUR PLANT TODAY TRACKER + SIGNUP -->
+    <section id="tracker" class="py-5 bg-white border-top border-bottom">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Tracker -->
+          <div class="col-lg-6">
+            <p class="section-title mb-2">Your plant today</p>
+            <h2 class="h3 fw-bold mb-3">Track today’s growth & care</h2>
+            <p class="text-muted mb-4">
+              Use the simple tracker to snapshot how your plant is doing today.
+              In a full app, this could save to your account and show streaks
+              over time.
+            </p>
+
+            <div class="card border-0 shadow-sm mb-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    <p class="mb-1 text-muted small">Growth level</p>
+                    <div class="tracker-value">
+                      <span id="growthValue">50</span>%
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <p class="mb-1 text-muted small">Mood</p>
+                    <span
+                      id="plantMood"
+                      class="badge bg-success-subtle text-success"
+                    >
+                      Doing well 🌿
+                    </span>
+                  </div>
+                </div>
+
+                <label for="growthRange" class="form-label"
+                  >Adjust today’s growth</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  max="100"
+                  step="5"
+                  id="growthRange"
+                  value="50"
+                />
+
+                <div class="progress mt-3" style="height: 0.75rem;">
+                  <div
+                    id="growthBar"
+                    class="progress-bar bg-success"
+                    role="progressbar"
+                    style="width: 50%;"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="50"
+                  ></div>
+                </div>
+
+                <div class="mt-3">
+                  <label for="todayNotes" class="form-label"
+                    >Today’s notes (watering, light, etc.)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="todayNotes"
+                    rows="3"
+                    placeholder="Example: Moved to sunnier window & watered lightly."
+                  ></textarea>
+                </div>
+
+                <div class="d-flex justify-content-end mt-3">
+                  <button class="btn btn-outline-success btn-sm" type="button">
+                    Save today’s check-in (mock)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Signup form -->
+          <div id="signup" class="col-lg-6">
+            <p class="section-title mb-2">Join the next season</p>
+            <h2 class="h3 fw-bold mb-3">Get ready for the next grow-along</h2>
+            <p class="text-muted">
+              Sign up once and we’ll email you when the next seasonal grow-along
+              opens. You’ll also get a free starter guide and sample weekly
+              schedule.
+            </p>
+
+            <form id="season-signup" class="card border-0 shadow-sm">
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Alex Sprout"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="plantType" class="form-label"
+                      >What do you want to grow?</label
+                    >
+                    <select class="form-select" id="plantType" required>
+                      <option value="" selected disabled>Choose one</option>
+                      <option value="herbs">Kitchen herbs</option>
+                      <option value="greens">Leafy greens</option>
+                      <option value="flowers">Flower mix</option>
+                      <option value="succulents">Succulents</option>
+                      <option value="other">I’ll bring my own plant</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="experience" class="form-label"
+                      >Experience level</label
+                    >
+                    <select class="form-select" id="experience" required>
+                      <option value="" selected disabled>Choose one</option>
+                      <option value="new">New to plants</option>
+                      <option value="some">Some experience</option>
+                      <option value="confident">Pretty confident</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="seasonPreference" class="form-label"
+                      >Seasons you’re interested in</label
+                    >
+                    <div class="row">
+                      <div class="col-6 col-md-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="spring"
+                            id="spring"
+                          />
+                          <label class="form-check-label" for="spring">
+                            Spring
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="summer"
+                            id="summer"
+                          />
+                          <label class="form-check-label" for="summer">
+                            Summer
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="fall"
+                            id="fall"
+                          />
+                          <label class="form-check-label" for="fall">
+                            Fall
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value="winter"
+                            id="winter"
+                          />
+                          <label class="form-check-label" for="winter">
+                            Winter
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="newsletter"
+                        checked
+                      />
+                      <label class="form-check-label" for="newsletter">
+                        Also send me weekly grow-along emails and community
+                        highlights.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                  <button type="submit" class="btn btn-success">
+                    Get notified
+                  </button>
+                  <small class="text-muted"
+                    >No spam. Unsubscribe any time.</small
+                  >
+                </div>
+
+                <div
+                  id="season-signup-success"
+                  class="form-text text-success mt-2 d-none"
+                >
+                  You’re on the list! We’ll email you before the next season
+                  starts 🌱
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CALENDAR -->
+    <section id="calendar" class="py-5">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <p class="section-title mb-2">Calendar</p>
+            <h2 class="h3 fw-bold">Interactive grow-along calendar</h2>
+            <p class="text-muted mb-0">
+              Hover over highlighted days to see what’s happening. In a real
+              app, you could click events for details, join live sessions, or
+              upload photos for that day.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    <h5 class="mb-0">Spring Herbs — April 2025</h5>
+                    <small class="text-muted"
+                      >Example static calendar for the grow-along month
+                    </small>
+                  </div>
+                  <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-outline-success">
+                      &lt;
+                    </button>
+                    <button type="button" class="btn btn-outline-success">
+                      &gt;
+                    </button>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered align-middle mb-0">
+                    <thead class="table-light">
+                      <tr class="text-center small">
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                      </tr>
+                    </thead>
+                    <tbody class="small text-center">
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="calendar-day">1</td>
+                        <td class="calendar-day">2</td>
+                        <td class="calendar-day has-event" data-event="Season kickoff &amp; welcome email">
+                          3
+                        </td>
+                        <td class="calendar-day">4</td>
+                        <td class="calendar-day has-event" data-event="First photo prompt: &quot;Your plant’s home&quot;">
+                          5
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="calendar-day">6</td>
+                        <td class="calendar-day has-event" data-event="Live Q&amp;A: watering basics">
+                          7
+                        </td>
+                        <td class="calendar-day">8</td>
+                        <td class="calendar-day">9</td>
+                        <td class="calendar-day has-event" data-event="Fertilizer check-in">
+                          10
+                        </td>
+                        <td class="calendar-day">11</td>
+                        <td class="calendar-day has-event" data-event="Community photo highlights">
+                          12
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="calendar-day">13</td>
+                        <td class="calendar-day">14</td>
+                        <td class="calendar-day has-event" data-event="Repotting tutorial">
+                          15
+                        </td>
+                        <td class="calendar-day">16</td>
+                        <td class="calendar-day">17</td>
+                        <td class="calendar-day has-event" data-event="Mid-season check-in survey">
+                          18
+                        </td>
+                        <td class="calendar-day">19</td>
+                      </tr>
+                      <tr>
+                        <td class="calendar-day">20</td>
+                        <td class="calendar-day has-event" data-event="Sunlight &amp; placement deep dive">
+                          21
+                        </td>
+                        <td class="calendar-day">22</td>
+                        <td class="calendar-day">23</td>
+                        <td class="calendar-day has-event" data-event="New growth celebration prompt">
+                          24
+                        </td>
+                        <td class="calendar-day">25</td>
+                        <td class="calendar-day">26</td>
+                      </tr>
+                      <tr>
+                        <td class="calendar-day has-event" data-event="Final recap &amp; next season preview">
+                          27
+                        </td>
+                        <td class="calendar-day">28</td>
+                        <td class="calendar-day">29</td>
+                        <td class="calendar-day">30</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event details panel -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title mb-3">Day details</h5>
+                <p id="calendarSelectedDay" class="mb-1 fw-semibold">
+                  Hover over a highlighted day 🌱
+                </p>
+                <p id="calendarSelectedEvent" class="text-muted mb-3 small">
+                  Move your mouse over a green-tinted day in the calendar to see
+                  what’s happening for the grow-along.
+                </p>
+
+                <ul class="list-group list-group-flush small flex-grow-1 mb-3">
+                  <li class="list-group-item">
+                    <strong>Categories</strong><br />
+                    Emails, live events, photo prompts, and challenge days.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Examples</strong><br />
+                    <span class="badge bg-success-subtle text-success">
+                      Repotting day
+                    </span>
+                    <span class="badge bg-success-subtle text-success">
+                      Photo prompt
+                    </span>
+                    <span class="badge bg-success-subtle text-success">
+                      Q&amp;A
+                    </span>
+                  </li>
+                </ul>
+
+                <small class="text-muted">
+                  In a full build, this panel could include links to rewatch
+                  live sessions, download checklists, or upload photos for a
+                  specific day.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-4 bg-white border-top">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span class="text-muted">
+          &copy; <span id="year"></span> Grow-Along Garden. All rights reserved.
+        </span>
+        <span class="text-muted">
+          Built with <span class="text-success">Bootstrap-style</span> components 🌿
+        </span>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Dynamic year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Hero signup mock
+      const heroForm = document.getElementById("hero-signup");
+      const heroSuccess = document.getElementById("hero-signup-success");
+      heroForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        heroSuccess.classList.remove("d-none");
+      });
+
+      // Season signup mock
+      const seasonForm = document.getElementById("season-signup");
+      const seasonSuccess = document.getElementById("season-signup-success");
+      seasonForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        seasonSuccess.classList.remove("d-none");
+      });
+
+      // Your Plant Today tracker
+      const growthRange = document.getElementById("growthRange");
+      const growthValue = document.getElementById("growthValue");
+      const growthBar = document.getElementById("growthBar");
+      const plantMood = document.getElementById("plantMood");
+
+      function updateMood(value) {
+        let text = "Doing well 🌿";
+        let cls = "badge bg-success-subtle text-success";
+
+        if (value <= 20) {
+          text = "Needs attention 😟";
+          cls = "badge bg-danger-subtle text-danger";
+        } else if (value <= 40) {
+          text = "A bit fragile 🌧";
+          cls = "badge bg-warning-subtle text-warning";
+        } else if (value <= 70) {
+          text = "Doing well 🌿";
+          cls = "badge bg-success-subtle text-success";
+        } else {
+          text = "Thriving 🌼";
+          cls = "badge bg-success";
+        }
+
+        plantMood.textContent = text;
+        plantMood.className = cls;
+      }
+
+      growthRange.addEventListener("input", function () {
+        const value = parseInt(this.value, 10);
+        growthValue.textContent = value;
+        growthBar.style.width = value + "%";
+        growthBar.setAttribute("aria-valuenow", value);
+        updateMood(value);
+      });
+
+      // Calendar hover interaction
+      const days = document.querySelectorAll(".calendar-day.has-event");
+      const selectedDay = document.getElementById("calendarSelectedDay");
+      const selectedEvent = document.getElementById("calendarSelectedEvent");
+
+      days.forEach((day) => {
+        day.addEventListener("mouseenter", () => {
+          const dayNumber = day.textContent.trim();
+          const eventText = day.getAttribute("data-event");
+
+          selectedDay.textContent = "Day " + dayNumber;
+          selectedEvent.textContent = eventText;
+        });
+      });
+    </script>
+  </body>
+</html>
