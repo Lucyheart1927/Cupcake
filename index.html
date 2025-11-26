@@ -5,25 +5,19 @@
     <title>My Garden</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    >
+    <!-- Bootstrap CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    >
+    <!-- Bootstrap Icons (for the little icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-   
+    <!-- My CSS file -->
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body class="bg-soft-yellow">
 
-   
+    <!-- Simple navbar -->
     <nav class="navbar bg-white border-bottom shadow-sm">
       <div class="container">
         <span class="navbar-brand fw-bold">🌱 My Garden</span>
@@ -32,35 +26,36 @@
 
     <div class="container py-4">
 
+      <!-- Page title -->
       <h1 class="h4 mb-3">My Garden</h1>
 
-    
+      <!-- Fake tabs just for navigation on the page -->
       <ul class="nav nav-pills tracker-tabs mb-4">
         <li class="nav-item">
-          <button class="nav-link active" type="button">
+          <button class="nav-link active">
             <i class="bi bi-bar-chart-line me-1"></i> Progress
           </button>
         </li>
         <li class="nav-item">
-          <a href="#weekly-calendar" class="nav-link">
+          <a class="nav-link" href="#weekly-calendar">
             <i class="bi bi-calendar-week me-1"></i> Calendar
           </a>
         </li>
         <li class="nav-item">
-          <a href="#photos" class="nav-link">
+          <a class="nav-link" href="#photos">
             <i class="bi bi-image me-1"></i> My Photos
           </a>
         </li>
       </ul>
 
-      
+      <!-- Tracker card / main plant info -->
       <section class="mb-4">
         <div class="tracker-card">
           <div class="tracker-card-inner">
 
             <div class="d-flex justify-content-between mb-4">
-              <div class="d-flex align-items-center gap-3">
-                <div class="tracker-avatar">
+              <div class="d-flex align-items-center">
+                <div class="tracker-avatar me-3">
                   <i class="bi bi-flower3 fs-4"></i>
                 </div>
                 <div>
@@ -69,8 +64,8 @@
                 </div>
               </div>
 
-              <div class="d-flex flex-column align-items-end gap-2">
-                <span class="badge rounded-pill tracker-status">
+              <div class="text-end">
+                <span class="badge rounded-pill tracker-status d-block mb-2">
                   <i class="bi bi-emoji-smile me-1"></i> Excellent
                 </span>
                 <span class="badge rounded-pill tracker-days">
@@ -87,8 +82,8 @@
             <div class="row g-3 mb-4">
               <div class="col-md-6">
                 <div class="tracker-pill-card tracker-pill-green">
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="tracker-pill-icon">
+                  <div class="d-flex align-items-center">
+                    <div class="tracker-pill-icon me-3">
                       <i class="bi bi-droplet"></i>
                     </div>
                     <div>
@@ -101,8 +96,8 @@
 
               <div class="col-md-6">
                 <div class="tracker-pill-card tracker-pill-lilac">
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="tracker-pill-icon">
+                  <div class="d-flex align-items-center">
+                    <div class="tracker-pill-icon me-3">
                       <i class="bi bi-calendar-event"></i>
                     </div>
                     <div>
@@ -115,8 +110,8 @@
             </div>
 
             <div class="tracker-tip-card">
-              <div class="d-flex align-items-center gap-3">
-                <div class="tracker-tip-icon">
+              <div class="d-flex align-items-center">
+                <div class="tracker-tip-icon me-3">
                   <i class="bi bi-sun"></i>
                 </div>
                 <div>
@@ -132,13 +127,14 @@
         </div>
       </section>
 
-     
+      <!-- Email sign-up card -->
       <div class="mb-4">
         <div class="email-card">
           <div class="email-card-inner">
             <div class="row g-3 align-items-center">
-              <div class="col-md-4 d-flex align-items-center gap-3">
-                <div class="email-icon">
+
+              <div class="col-md-4 d-flex align-items-center">
+                <div class="email-icon me-3">
                   <i class="bi bi-envelope fs-5"></i>
                 </div>
                 <p class="mb-0 fw-semibold">Get Weekly Progress Updates</p>
@@ -153,20 +149,21 @@
                   </button>
                 </form>
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      
+      <!-- Weekly calendar / tasks section -->
       <section id="weekly-calendar" class="mb-5">
         <h2 class="h5 mb-3">Weekly Calendar</h2>
 
-        
+        <!-- Week 1 -->
         <div class="week-card mb-3">
           <div class="week-card-inner">
-            <div class="d-flex gap-3 mb-3">
-              <div class="week-icon">
+            <div class="d-flex mb-3">
+              <div class="week-icon me-3">
                 <i class="bi bi-check-circle fs-4"></i>
               </div>
               <div>
@@ -185,11 +182,11 @@
           </div>
         </div>
 
-        
+        <!-- Week 2 -->
         <div class="week-card mb-3">
           <div class="week-card-inner">
-            <div class="d-flex gap-3 mb-3">
-              <div class="week-icon">
+            <div class="d-flex mb-3">
+              <div class="week-icon me-3">
                 <i class="bi bi-check-circle fs-4"></i>
               </div>
               <div>
@@ -208,11 +205,11 @@
           </div>
         </div>
 
-        
+        <!-- Week 3 -->
         <div class="week-card mb-3">
           <div class="week-card-inner">
-            <div class="d-flex gap-3 mb-3">
-              <div class="week-icon">
+            <div class="d-flex mb-3">
+              <div class="week-icon me-3">
                 <i class="bi bi-hourglass-split fs-4"></i>
               </div>
               <div>
@@ -231,11 +228,11 @@
           </div>
         </div>
 
-       
+        <!-- Week 4 -->
         <div class="week-card">
           <div class="week-card-inner">
-            <div class="d-flex gap-3 mb-3">
-              <div class="week-icon">
+            <div class="d-flex mb-3">
+              <div class="week-icon me-3">
                 <i class="bi bi-flower1 fs-4"></i>
               </div>
               <div>
@@ -253,10 +250,9 @@
             </div>
           </div>
         </div>
-
       </section>
 
-   
+      <!-- Photo gallery -->
       <section id="photos" class="mb-5">
         <h2 class="h5 mb-3">My Photos</h2>
         <p class="small text-muted">Your photo updates will appear here.</p>
@@ -293,17 +289,18 @@
         </div>
       </section>
 
-    
+      <!-- Footer -->
       <footer class="py-3 border-top text-center small text-muted">
         Grow-Along Garden • My Garden Dashboard
       </footer>
 
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS bundle (for components) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
 
 
 
