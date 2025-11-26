@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Garden</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+  <!-- my css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- very simple nav -->
+  <nav class="navbar bg-white border-bottom shadow-sm">
+    <div class="container">
+      <span class="navbar-brand">🌱 My Garden</span>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="h4">My Garden</h1>
+
+    <!-- simple tabs -->
+    <div class="mb-4">
+      <button class="nav-link active d-inline-block">🌱 Progress</button>
+      <a href="#weekly-calendar" class="nav-link d-inline-block">📅 Calendar</a>
+      <a href="#photos" class="nav-link d-inline-block">📷 My Photos</a>
+    </div>
+
+    <!-- tracker card -->
+    <div class="tracker-card mb-4">
+      <div class="tracker-card-inner">
+
+        <div class="d-flex justify-content-between mb-3">
+          <div class="d-flex gap-3">
+            <div class="tracker-avatar">
+              🪴
+            </div>
+            <div>
+              <p class="small text-muted mb-0">Your plant today</p>
+              <h2 class="h5 mb-0">Your Cherry Tomatoes Today!</h2>
+            </div>
+          </div>
+
+          <div>
+            <span class="badge tracker-status">💚 Excellent</span>
+            <br>
+            <span class="badge tracker-days mt-2">Day 21 of 70</span>
+          </div>
+        </div>
+
+        <p class="small text-muted mb-1">Growth Progress</p>
+        <div class="progress tracker-progress">
+          <div class="progress-bar" style="width:30%;"></div>
+        </div>
+
+        <div class="row mt-3 mb-3">
+          <div class="col-md-6 mb-2">
+            <div class="tracker-pill-card tracker-pill-green">
+              <div class="d-flex gap-3">
+                <div class="tracker-pill-icon">💧</div>
+                <div>
+                  <p class="small text-muted mb-0">Last Watered</p>
+                  <p class="fw-semibold mb-0">Yesterday</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="tracker-pill-card tracker-pill-lilac">
+              <div class="d-flex gap-3">
+                <div class="tracker-pill-icon">📅</div>
+                <div>
+                  <p class="small text-muted mb-0">Next Milestone</p>
+                  <p class="fw-semibold mb-0">First flowers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tracker-tip-card">
+          <div class="d-flex gap-3">
+            <div class="tracker-tip-icon">☀️</div>
+            <div>
+              <p class="fw-semibold mb-1">This Week's Tip ✨</p>
+              <p class="small mb-0">
+                Make sure your plant gets 6–8 hours of sunlight daily. Watch for the first true leaves!
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- email card -->
+    <div class="email-card mb-4">
+      <div class="email-card-inner">
+        <div class="row">
+          <div class="col-md-4 d-flex gap-3">
+            <div class="email-icon">📧</div>
+            <p class="fw-semibold mb-0">Get Weekly Progress Updates</p>
+          </div>
+          <div class="col-md-8 mt-3 mt-md-0">
+            <p class="small mb-2">Growing tips and reminders sent to your inbox ✨</p>
+            <div class="d-flex gap-2">
+              <input class="form-control rounded-pill" placeholder="Enter your email" />
+              <button class="btn btn-subscribe rounded-pill">Subscribe 💚</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- weekly calendar -->
+    <h2 id="weekly-calendar" class="h5 mb-3">Weekly Calendar</h2>
+
+    <!-- week 1 -->
+    <div class="week-card mb-3">
+      <div class="week-card-inner">
+        <div class="d-flex gap-3 mb-3">
+          <div class="week-icon">✅</div>
+          <div>
+            <h3 class="h6 mb-1">Week 1: Germination</h3>
+            <p class="small text-muted mb-0">Your seeds are sprouting!</p>
+          </div>
+        </div>
+
+        <div class="week-tasks-box">
+          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
+          <ul class="small mb-0">
+            <li>🌿 Keep soil moist</li>
+            <li>🌿 Stay between 65–75°F</li>
+            <li>🌿 Indirect sunlight</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- week 2 -->
+    <div class="week-card mb-3">
+      <div class="week-card-inner">
+        <div class="d-flex gap-3 mb-3">
+          <div class="week-icon">✅</div>
+          <div>
+            <h3 class="h6 mb-1">Week 2: First Leaves</h3>
+            <p class="small text-muted mb-0">First true leaves appear.</p>
+          </div>
+        </div>
+
+        <div class="week-tasks-box">
+          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
+          <ul class="small mb-0">
+            <li>🌿 Increase light</li>
+            <li>🌿 Water when top soil is dry</li>
+            <li>🌿 Prevent leggy growth</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- week 3 -->
+    <div class="week-card mb-3">
+      <div class="week-card-inner">
+        <div class="d-flex gap-3 mb-3">
+          <div class="week-icon">⏳</div>
+          <div>
+            <h3 class="h6 mb-1">Week 3: Vegetative Growth</h3>
+            <p class="small text-muted mb-0">More leaves + stronger roots.</p>
+          </div>
+        </div>
+
+        <div class="week-tasks-box">
+          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
+          <ul class="small mb-0">
+            <li>🌿 Light fertilizer</li>
+            <li>🌿 6–8 hours of sun</li>
+            <li>🌿 Check for pests</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- week 4 -->
+    <div class="week-card mb-5">
+      <div class="week-card-inner">
+        <div class="d-flex gap-3 mb-3">
+          <div class="week-icon">🌼</div>
+          <div>
+            <h3 class="h6 mb-1">Week 4: Getting Ready to Flower</h3>
+            <p class="small text-muted mb-0">Buds are almost ready!</p>
+          </div>
+        </div>
+
+        <div class="week-tasks-box">
+          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
+          <ul class="small mb-0">
+            <li>🌿 Support stems</li>
+            <li>🌿 Water consistently</li>
+            <li>🌿 Remove extra shoots</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- photos -->
+    <h2 id="photos" class="h5 mb-3">My Photos</h2>
+
+    <p class="small text-muted">Where your photos will go.</p>
+
+    <div class="row g-3 mb-5">
+      <div class="col-6 col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://images.pexels.com/photos/4750320/pexels-photo-4750320.jpeg" class="card-img-top">
+          <div class="card-body small">
+            Cherry Tomato – Day 15 🌱
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center py-3 small text-muted border-top">
+      Grow-Along Garden • My Garden Dashboard
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
