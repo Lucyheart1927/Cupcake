@@ -1,236 +1,264 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Garden</title>
+/* --------------------------------------------------
+   FONT IMPORTS — CUTE FREDOKA FOR HEADINGS ONLY
+-------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
 
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+/* Headings & titles */
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.week-card h3,
+.tracker-card h2,
+.email-card p.fw-semibold,
+.section-title {
+  font-family: "Fredoka", sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
 
-  <!-- my css -->
-  <link rel="stylesheet" href="style.css">
-</head>
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
 
-<body>
+body {
+  background-color: #ffffff;
+  color: #34592e;
+  font-family: "Inter", sans-serif;
+}
 
-  <!-- very simple nav -->
-  <nav class="navbar bg-white border-bottom shadow-sm">
-    <div class="container">
-      <span class="navbar-brand">🌱 My Garden</span>
-    </div>
-  </nav>
+/* --------------------------------------------------
+   NAVBAR
+-------------------------------------------------- */
+.navbar {
+  background-color: #ffffff !important;
+  border-bottom: 2px solid #f2f2f2;
+}
 
-  <div class="container mt-4">
-    <h1 class="h4">My Garden</h1>
+.navbar-brand {
+  color: #34592e !important;
+  font-size: 1.35rem;
+}
 
-    <!-- simple tabs -->
-    <div class="mb-4">
-      <button class="nav-link active d-inline-block">🌱 Progress</button>
-      <a href="#weekly-calendar" class="nav-link d-inline-block">📅 Calendar</a>
-      <a href="#photos" class="nav-link d-inline-block">📷 My Photos</a>
-    </div>
+.nav-link {
+  color: #6d9f7a !important;
+  font-weight: 500;
+}
 
-    <!-- tracker card -->
-    <div class="tracker-card mb-4">
-      <div class="tracker-card-inner">
+.nav-link:hover {
+  color: #34592e !important;
+}
 
-        <div class="d-flex justify-content-between mb-3">
-          <div class="d-flex gap-3">
-            <div class="tracker-avatar">
-              🪴
-            </div>
-            <div>
-              <p class="small text-muted mb-0">Your plant today</p>
-              <h2 class="h5 mb-0">Your Cherry Tomatoes Today!</h2>
-            </div>
-          </div>
+/* --------------------------------------------------
+   TABS (Progress / Calendar / Photos)
+-------------------------------------------------- */
+.tracker-tabs .nav-link {
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-weight: 600;
+  background-color: #f2f2f2;
+  color: #34592e;
+  margin-right: 6px;
+}
 
-          <div>
-            <span class="badge tracker-status">💚 Excellent</span>
-            <br>
-            <span class="badge tracker-days mt-2">Day 21 of 70</span>
-          </div>
-        </div>
+.tracker-tabs .nav-link.active {
+  background-color: #a8dc6e;
+  color: #ffffff;
+}
 
-        <p class="small text-muted mb-1">Growth Progress</p>
-        <div class="progress tracker-progress">
-          <div class="progress-bar" style="width:30%;"></div>
-        </div>
+/* --------------------------------------------------
+   TRACKER CARD
+-------------------------------------------------- */
+.tracker-card {
+  background: white;
+  border: 2px solid #cdf2ac;
+  border-radius: 26px;
+  padding: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
 
-        <div class="row mt-3 mb-3">
-          <div class="col-md-6 mb-2">
-            <div class="tracker-pill-card tracker-pill-green">
-              <div class="d-flex gap-3">
-                <div class="tracker-pill-icon">💧</div>
-                <div>
-                  <p class="small text-muted mb-0">Last Watered</p>
-                  <p class="fw-semibold mb-0">Yesterday</p>
-                </div>
-              </div>
-            </div>
-          </div>
+.tracker-card-inner {
+  padding: 30px;
+}
 
-          <div class="col-md-6 mb-2">
-            <div class="tracker-pill-card tracker-pill-lilac">
-              <div class="d-flex gap-3">
-                <div class="tracker-pill-icon">📅</div>
-                <div>
-                  <p class="small text-muted mb-0">Next Milestone</p>
-                  <p class="fw-semibold mb-0">First flowers</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+.tracker-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #cdf2ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
 
-        <div class="tracker-tip-card">
-          <div class="d-flex gap-3">
-            <div class="tracker-tip-icon">☀️</div>
-            <div>
-              <p class="fw-semibold mb-1">This Week's Tip ✨</p>
-              <p class="small mb-0">
-                Make sure your plant gets 6–8 hours of sunlight daily. Watch for the first true leaves!
-              </p>
-            </div>
-          </div>
-        </div>
+.tracker-status {
+  background-color: #cdf2ac;
+  color: #34592e;
+  font-weight: 600;
+  padding: 8px 16px;
+}
 
-      </div>
-    </div>
+.tracker-days {
+  background-color: #a8dc6e;
+  color: #34592e;
+  font-weight: 600;
+  padding: 8px 16px;
+}
 
-    <!-- email card -->
-    <div class="email-card mb-4">
-      <div class="email-card-inner">
-        <div class="row">
-          <div class="col-md-4 d-flex gap-3">
-            <div class="email-icon">📧</div>
-            <p class="fw-semibold mb-0">Get Weekly Progress Updates</p>
-          </div>
-          <div class="col-md-8 mt-3 mt-md-0">
-            <p class="small mb-2">Growing tips and reminders sent to your inbox ✨</p>
-            <div class="d-flex gap-2">
-              <input class="form-control rounded-pill" placeholder="Enter your email" />
-              <button class="btn btn-subscribe rounded-pill">Subscribe 💚</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+.tracker-progress {
+  height: 12px;
+  background-color: #e8f5d9;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-    <!-- weekly calendar -->
-    <h2 id="weekly-calendar" class="h5 mb-3">Weekly Calendar</h2>
+.tracker-progress .progress-bar {
+  background-color: #6d9f7a;
+}
 
-    <!-- week 1 -->
-    <div class="week-card mb-3">
-      <div class="week-card-inner">
-        <div class="d-flex gap-3 mb-3">
-          <div class="week-icon">✅</div>
-          <div>
-            <h3 class="h6 mb-1">Week 1: Germination</h3>
-            <p class="small text-muted mb-0">Your seeds are sprouting!</p>
-          </div>
-        </div>
+/* PILL CARDS */
+.tracker-pill-card {
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
-        <div class="week-tasks-box">
-          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
-          <ul class="small mb-0">
-            <li>🌿 Keep soil moist</li>
-            <li>🌿 Stay between 65–75°F</li>
-            <li>🌿 Indirect sunlight</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+.tracker-pill-green {
+  background-color: #cdf2ac;
+}
 
-    <!-- week 2 -->
-    <div class="week-card mb-3">
-      <div class="week-card-inner">
-        <div class="d-flex gap-3 mb-3">
-          <div class="week-icon">✅</div>
-          <div>
-            <h3 class="h6 mb-1">Week 2: First Leaves</h3>
-            <p class="small text-muted mb-0">First true leaves appear.</p>
-          </div>
-        </div>
+.tracker-pill-lilac {
+  background-color: #d8c7da;
+}
 
-        <div class="week-tasks-box">
-          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
-          <ul class="small mb-0">
-            <li>🌿 Increase light</li>
-            <li>🌿 Water when top soil is dry</li>
-            <li>🌿 Prevent leggy growth</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+.tracker-pill-icon {
+  font-size: 26px;
+}
 
-    <!-- week 3 -->
-    <div class="week-card mb-3">
-      <div class="week-card-inner">
-        <div class="d-flex gap-3 mb-3">
-          <div class="week-icon">⏳</div>
-          <div>
-            <h3 class="h6 mb-1">Week 3: Vegetative Growth</h3>
-            <p class="small text-muted mb-0">More leaves + stronger roots.</p>
-          </div>
-        </div>
+/* TIP CARD */
+.tracker-tip-card {
+  background-color: #a8dc6e;
+  border-radius: 20px;
+  padding: 20px;
+  color: #34592e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
-        <div class="week-tasks-box">
-          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
-          <ul class="small mb-0">
-            <li>🌿 Light fertilizer</li>
-            <li>🌿 6–8 hours of sun</li>
-            <li>🌿 Check for pests</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+.tracker-tip-icon {
+  font-size: 30px;
+}
 
-    <!-- week 4 -->
-    <div class="week-card mb-5">
-      <div class="week-card-inner">
-        <div class="d-flex gap-3 mb-3">
-          <div class="week-icon">🌼</div>
-          <div>
-            <h3 class="h6 mb-1">Week 4: Getting Ready to Flower</h3>
-            <p class="small text-muted mb-0">Buds are almost ready!</p>
-          </div>
-        </div>
+/* --------------------------------------------------
+   EMAIL CARD
+-------------------------------------------------- */
+.email-card {
+  background: #ffffff;
+  border: 2px solid #d8c7da;
+  border-radius: 26px;
+  padding: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
 
-        <div class="week-tasks-box">
-          <p class="fw-semibold mb-1">📋 Weekly Tasks:</p>
-          <ul class="small mb-0">
-            <li>🌿 Support stems</li>
-            <li>🌿 Water consistently</li>
-            <li>🌿 Remove extra shoots</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+.email-card-inner {
+  padding: 30px;
+}
 
-    <!-- photos -->
-    <h2 id="photos" class="h5 mb-3">My Photos</h2>
+.email-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #d8c7da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
 
-    <p class="small text-muted">Where your photos will go.</p>
+.btn-subscribe {
+  background-color: #6d9f7a;
+  color: white;
+  padding: 8px 22px;
+  font-weight: 600;
+  border: none;
+}
 
-    <div class="row g-3 mb-5">
-      <div class="col-6 col-md-4">
-        <div class="card shadow-sm">
-          <img src="https://images.pexels.com/photos/4750320/pexels-photo-4750320.jpeg" class="card-img-top">
-          <div class="card-body small">
-            Cherry Tomato – Day 15 🌱
-          </div>
-        </div>
-      </div>
-    </div>
+.btn-subscribe:hover {
+  background-color: #34592e;
+}
 
-    <footer class="text-center py-3 small text-muted border-top">
-      Grow-Along Garden • My Garden Dashboard
-    </footer>
+/* --------------------------------------------------
+   WEEKLY TASK CARDS
+-------------------------------------------------- */
+.week-card {
+  background-color: white;
+  border-radius: 26px;
+  border: 2px solid #d8c7da;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
 
-  </div>
+.week-card-inner {
+  padding: 6px 6px 12px 6px;
+}
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+.week-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #cdf2ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Inner task box */
+.week-tasks-box {
+  border: 2px solid #a8dc6e;
+  border-radius: 20px;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+
+.week-tasks-box p {
+  color: #34592e;
+}
+
+.week-tasks-box ul {
+  padding-left: 18px;
+  margin-top: 6px;
+}
+
+.week-tasks-box li {
+  margin-bottom: 4px;
+  color: #34592e;
+}
+
+/* --------------------------------------------------
+   PHOTOS
+-------------------------------------------------- */
+.card-img-top {
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+footer {
+  color: #6d9f7a;
+}
+/* Make all bottom photo images same size */
+.photo-card-img {
+  width: 100%;
+  height: 220px;        /* you can change this number if you want */
+  object-fit: cover;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
